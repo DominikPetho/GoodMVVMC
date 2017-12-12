@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IKp-3F-rS3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--User Detail Controller-->
+        <scene sceneID="b8g-Mc-Cqh">
+            <objects>
+                <viewController id="IKp-3F-rS3" customClass="UserDetailController" customModule="MVVMCTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qPU-oD-lGE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="promoImage" translatesAutoresizingMaskIntoConstraints="NO" id="qqF-eJ-Nm7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="wqJ-sO-kFk"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meno" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2Z-3c-adm">
+                                <rect key="frame" x="15" y="215" width="345" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <color key="textColor" red="0.20392156859999999" green="0.2156862745" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2l-z0-VrN">
+                                <rect key="frame" x="15" y="246" width="43.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priezvisko" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9G-Jh-2fC">
+                                <rect key="frame" x="15" y="282" width="62" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.20392156859999999" green="0.2156862745" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWG-2M-9L4">
+                                <rect key="frame" x="15" y="313" width="43.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnR-Ie-2AK">
+                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="5jW-CT-Xpi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="SAVE USER">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveActualUser" destination="IKp-3F-rS3" eventType="touchUpInside" id="4fd-Q0-mEE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6jn-UV-AE0" firstAttribute="trailing" secondItem="w2Z-3c-adm" secondAttribute="trailing" constant="15" id="3Hd-zx-KF1"/>
+                            <constraint firstItem="GnR-Ie-2AK" firstAttribute="leading" secondItem="6jn-UV-AE0" secondAttribute="leading" id="BL3-NN-pSy"/>
+                            <constraint firstItem="cWG-2M-9L4" firstAttribute="leading" secondItem="6jn-UV-AE0" secondAttribute="leading" constant="15" id="CII-cr-aEB"/>
+                            <constraint firstItem="cWG-2M-9L4" firstAttribute="top" secondItem="J9G-Jh-2fC" secondAttribute="bottom" constant="15" id="Hi2-s9-0h1"/>
+                            <constraint firstItem="N2l-z0-VrN" firstAttribute="top" secondItem="w2Z-3c-adm" secondAttribute="bottom" constant="15" id="JAZ-Gi-ty3"/>
+                            <constraint firstItem="6jn-UV-AE0" firstAttribute="trailing" secondItem="qqF-eJ-Nm7" secondAttribute="trailing" id="Jgj-7Q-h06"/>
+                            <constraint firstItem="J9G-Jh-2fC" firstAttribute="top" secondItem="N2l-z0-VrN" secondAttribute="bottom" constant="15" id="Rmh-ZT-G5t"/>
+                            <constraint firstItem="w2Z-3c-adm" firstAttribute="top" secondItem="qqF-eJ-Nm7" secondAttribute="bottom" constant="15" id="YWt-U4-ZZx"/>
+                            <constraint firstItem="J9G-Jh-2fC" firstAttribute="leading" secondItem="6jn-UV-AE0" secondAttribute="leading" constant="15" id="bsg-tE-MBN"/>
+                            <constraint firstItem="w2Z-3c-adm" firstAttribute="leading" secondItem="6jn-UV-AE0" secondAttribute="leading" constant="15" id="ckr-iQ-Phz"/>
+                            <constraint firstItem="qqF-eJ-Nm7" firstAttribute="leading" secondItem="6jn-UV-AE0" secondAttribute="leading" id="kzS-TX-VAI"/>
+                            <constraint firstItem="6jn-UV-AE0" firstAttribute="trailing" secondItem="GnR-Ie-2AK" secondAttribute="trailing" id="plG-FX-6KI"/>
+                            <constraint firstItem="6jn-UV-AE0" firstAttribute="bottom" secondItem="GnR-Ie-2AK" secondAttribute="bottom" id="wJb-JE-OZH"/>
+                            <constraint firstItem="6jn-UV-AE0" firstAttribute="top" secondItem="qqF-eJ-Nm7" secondAttribute="bottom" constant="-180" id="wTW-yt-KJF"/>
+                            <constraint firstItem="N2l-z0-VrN" firstAttribute="leading" secondItem="6jn-UV-AE0" secondAttribute="leading" constant="15" id="wXx-Tc-adq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6jn-UV-AE0"/>
+                    </view>
+                    <connections>
+                        <outlet property="name" destination="N2l-z0-VrN" id="rI6-No-lPA"/>
+                        <outlet property="surname" destination="cWG-2M-9L4" id="sj4-tb-wKF"/>
+                        <outlet property="userImage" destination="qqF-eJ-Nm7" id="uv6-1s-Pet"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4bZ-3l-wd5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="157.87106446776613"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="promoImage" width="2560" height="1040"/>
+    </resources>
+</document>

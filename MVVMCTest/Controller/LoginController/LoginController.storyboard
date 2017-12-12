@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w7X-O8-SIN">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login Controller-->
+        <scene sceneID="7w0-S9-WJH">
+            <objects>
+                <viewController id="w7X-O8-SIN" customClass="LoginController" customModule="MVVMCTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tyw-yq-qzJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="XR7-3B-f61">
+                                <rect key="frame" x="35" y="250" width="250" height="114"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yxB-qU-tyJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="taF-VR-eKu">
+                                        <rect key="frame" x="0.0" y="42" width="250" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zF9-tL-VyZ">
+                                        <rect key="frame" x="101.5" y="84" width="47" height="30"/>
+                                        <state key="normal" title="Sign In"/>
+                                        <connections>
+                                            <action selector="signIn" destination="w7X-O8-SIN" eventType="touchUpInside" id="peF-ej-7BM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="yxB-qU-tyJ" secondAttribute="trailing" id="Hz2-2M-ve6"/>
+                                    <constraint firstAttribute="width" constant="250" id="I2m-eY-ZXo"/>
+                                    <constraint firstAttribute="trailing" secondItem="taF-VR-eKu" secondAttribute="trailing" id="R7N-3i-6UI"/>
+                                    <constraint firstItem="yxB-qU-tyJ" firstAttribute="leading" secondItem="XR7-3B-f61" secondAttribute="leading" id="V4E-iJ-kzE"/>
+                                    <constraint firstItem="taF-VR-eKu" firstAttribute="leading" secondItem="XR7-3B-f61" secondAttribute="leading" id="vIw-Be-P5K"/>
+                                </constraints>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grLogo" translatesAutoresizingMaskIntoConstraints="NO" id="uku-h8-DdS">
+                                <rect key="frame" x="-706" y="35" width="1732" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="aEf-5C-4S1"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uku-h8-DdS" firstAttribute="top" secondItem="gGP-zl-vC4" secondAttribute="top" constant="15" id="4G5-M1-EiE"/>
+                            <constraint firstItem="XR7-3B-f61" firstAttribute="top" secondItem="uku-h8-DdS" secondAttribute="bottom" constant="15" id="H8H-L4-daj"/>
+                            <constraint firstItem="XR7-3B-f61" firstAttribute="centerX" secondItem="Tyw-yq-qzJ" secondAttribute="centerX" id="Jgb-OJ-hOZ"/>
+                            <constraint firstItem="uku-h8-DdS" firstAttribute="centerX" secondItem="Tyw-yq-qzJ" secondAttribute="centerX" id="m0G-rt-zrn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gGP-zl-vC4"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="yxB-qU-tyJ" id="nQD-F9-j52"/>
+                        <outlet property="signInButton" destination="zF9-tL-VyZ" id="5QV-aj-7aK"/>
+                        <outlet property="surnameTextField" destination="taF-VR-eKu" id="m2D-rL-eZx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0w7-Fv-PlC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="413.60000000000002" y="-165.06746626686657"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="grLogo" width="1732" height="1460"/>
+    </resources>
+</document>
