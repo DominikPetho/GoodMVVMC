@@ -8,8 +8,6 @@
 
 import Foundation
 
-typealias LoginViewModelDependencies = WithCache
-
 class LoginViewModel {
     
     fileprivate let dp: LoginViewModelDependencies
@@ -20,9 +18,12 @@ class LoginViewModel {
         self.coordinatorDelegate = delegate
     }
     
+    deinit {
+        debugPrint(String(describing: self))
+    }
 }
 
-extension LoginViewModel {
+extension LoginViewModel: LoginVM {
     
     func saveUser(name: String, surname: String) {
         dp.cache.cache(user: User(name: name, surname: surname))

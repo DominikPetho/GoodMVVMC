@@ -8,25 +8,30 @@
 
 import UIKit
 
-protocol TutorialControllerDelegate: class {
-    func show(user: User)
-}
-
 class TutorialController: UIViewController {
     
     @IBOutlet weak var name: UILabel!
     
-    fileprivate var viewModel: TutorialViewModel?
+    fileprivate var viewModel: TutorialVM?
     
-    static func create(viewModel: TutorialViewModel) -> TutorialController {
+    static func create(viewModel: TutorialVM) -> TutorialController {
         let controller = instantiate(fromController: TutorialController.self)
         controller.viewModel = viewModel
-        controller.viewModel?.setup(controllerDelegate: controller)
         return controller
     }
+    
+    deinit {
+        debugPrint(String(describing: self))
+    }
+    
 }
 
 extension TutorialController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel?.setup(viewDelegate: self)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -46,9 +51,11 @@ extension TutorialController {
     }
 }
 
-extension TutorialController: TutorialControllerDelegate {
-    func show(user: User) {
+extension TutorialController: TutorialViewDelegate {
+    
+    func show(user: User) {        
         self.name.text = "\(user.name) \(user.surname)"
     }
+    
 }
 

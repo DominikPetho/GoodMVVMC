@@ -8,44 +8,35 @@
 
 import Foundation
 
-typealias TutorialViewModelDependencies = WithCache
-
-class TutorialViewModelBinder {
-    var user: ((User) -> Void)?
-}
-
 class TutorialViewModel {
     
     fileprivate var user: User? {
         didSet {
             guard let user = user else { return }
-            controllerDelegate?.show(user: user)
+            viewDelegate?.show(user: user)
         }
     }
     
     fileprivate let dp: TutorialViewModelDependencies
     weak fileprivate var coordinatorDelegate: TutorialCoordinatorDelegate?
-    weak fileprivate var controllerDelegate: TutorialControllerDelegate? 
+    weak fileprivate var viewDelegate: TutorialViewDelegate?
     
     init(dp: TutorialViewModelDependencies, delegate: TutorialCoordinatorDelegate) {
         self.dp = dp
         self.coordinatorDelegate = delegate
-        
-        initSubscriber()
     }
 
+    deinit {
+        debugPrint(String(describing: self))
+    }
+    
 }
 
-extension TutorialViewModel {
+extension TutorialViewModel: TutorialVM {
     
-    func setup(controllerDelegate: TutorialControllerDelegate) {
-        self.controllerDelegate = controllerDelegate
-    }
-    
-    func initSubscriber() {
-        dp.cache.user.subscribe(self) { [weak self] in
-            self?.user = $0
-        }
+    func setup(viewDelegate: TutorialViewDelegate) {
+        self.viewDelegate = viewDelegate
+        initSubscriber()
     }
     
     func skip(name: String, surname: String) {        
@@ -55,6 +46,16 @@ extension TutorialViewModel {
     func goBack() {
         coordinatorDelegate?.goBack()
     }
+}
+
+extension TutorialViewModel {
+    
+    fileprivate func initSubscriber() {
+        dp.cache.user.subscribe(self) { [weak self] in
+            self?.user = $0
+        }
+    }
+    
 }
 
 

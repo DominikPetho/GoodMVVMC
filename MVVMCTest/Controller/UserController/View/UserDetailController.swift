@@ -8,37 +8,36 @@
 
 import UIKit
 
-protocol UserDetailProtocol: class {
-    func show(user: User)
-}
-
 class UserDetailController: UIViewController {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var surname: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     
-    fileprivate var viewModel: UserDetailViewModel?
+    fileprivate var viewModel: UserDetailVM?
     
-    static func create(viewModel: UserDetailViewModel) -> UserDetailController {
+    static func create(viewModel: UserDetailVM) -> UserDetailController {
         let controller = instantiate(fromController: UserDetailController.self)
         controller.viewModel = viewModel
-        controller.viewModel?.setup(controllerDelegate: controller)
         return controller
     }
-}
-
-extension UserDetailController {
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = false
+    
+    deinit {
+        debugPrint(String(describing: self))
     }
 }
 
 extension UserDetailController {
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel?.setup(viewDelegate: self)
         viewModel?.fetchUser()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
     }
 }
 
@@ -51,7 +50,7 @@ extension UserDetailController {
 }
 
 
-extension UserDetailController: UserDetailProtocol {
+extension UserDetailController: UserDetailViewDelegate {
     
     func show(user: User) {
         name.text = user.name

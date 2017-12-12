@@ -8,18 +8,16 @@
 
 import Foundation
 
-typealias UserDetailViewModelDependencies = WithCache
-
-class UserDetailViewModel {
+final class UserDetailViewModel {
     
     fileprivate var user: User {
         didSet {
-            controllerDelegate?.show(user: user)
+            viewDelegate?.show(user: user)
         }
     }
     
     weak fileprivate var coordinatorDelegate: TutorialCoordinatorDelegate?
-    weak fileprivate var controllerDelegate: UserDetailProtocol?
+    weak fileprivate var viewDelegate: UserDetailViewDelegate?
     fileprivate var dp: UserDetailViewModelDependencies
     
     init(dp: UserDetailViewModelDependencies, user: User, delegate: TutorialCoordinatorDelegate) {
@@ -27,12 +25,17 @@ class UserDetailViewModel {
         self.dp                  = dp
         self.coordinatorDelegate = delegate
     }
+    
+    deinit {
+        debugPrint(String(describing: self))
+    }
+    
 }
 
-extension UserDetailViewModel {
+extension UserDetailViewModel: UserDetailVM  {
     
-    func setup(controllerDelegate: UserDetailProtocol) {
-        self.controllerDelegate = controllerDelegate
+    func setup(viewDelegate: UserDetailViewDelegate) {
+        self.viewDelegate = viewDelegate
     }
     
     func saveActualUser() {
@@ -41,7 +44,7 @@ extension UserDetailViewModel {
     }
     
     func fetchUser() {
-        controllerDelegate?.show(user: user)
+        viewDelegate?.show(user: user)
     }
     
     func goBack() {

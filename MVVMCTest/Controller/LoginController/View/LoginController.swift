@@ -14,12 +14,16 @@ class LoginController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var surnameTextField: UITextField!
     
-    fileprivate var viewModel: LoginViewModel?
+    fileprivate var viewModel: LoginVM?
     
-    static func create(viewModel: LoginViewModel) -> LoginController {
+    static func create(viewModel: LoginVM) -> LoginController {
         let controller = instantiate(fromController: LoginController.self)
         controller.viewModel = viewModel
         return controller
+    }
+    
+    deinit {
+        debugPrint(String(describing: self))
     }
 }
 
